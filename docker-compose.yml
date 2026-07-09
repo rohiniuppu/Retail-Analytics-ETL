@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  retail-pipeline:
+    build: .
+    volumes:
+      - ./data:/app/data
+    command: python scripts/run_pipeline.py

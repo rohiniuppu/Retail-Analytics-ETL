@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retail-pipeline
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retail-pipeline
+  template:
+    metadata:
+      labels:
+        app: retail-pipeline
+    spec:
+      containers:
+        - name: retail-pipeline
+          image: retail-pipeline:latest
+          imagePullPolicy: IfNotPresent
+          command: ["python", "scripts/run_pipeline.py"]
